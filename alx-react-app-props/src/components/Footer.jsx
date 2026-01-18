@@ -1,7 +1,7 @@
-function Footer () {
+function Footer() {
   return (
-    <footer>
-      <p>&#169; 2023 City Lovers</p>
+    <footer style={{ textAlign: 'center', marginTop: '20px' }}>
+      <p>© 2026 My App</p>
     </footer>
   );
 }
