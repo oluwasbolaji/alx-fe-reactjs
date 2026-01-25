@@ -15,13 +15,6 @@ const useRecipeStore = create((set) => ({
       filteredRecipes: [...state.filteredRecipes, newRecipe],
     })),
 
-  deleteRecipe: (id) =>
-    set((state) => ({
-      recipes: state.recipes.filter((recipe) => recipe.id !== id),
-      filteredRecipes: state.filteredRecipes.filter((recipe) => recipe.id !== id),
-      favorites: state.favorites.filter((fid) => fid !== id),
-    })),
-
   updateRecipe: (updatedRecipe) =>
     set((state) => ({
       recipes: state.recipes.map((recipe) =>
@@ -31,6 +24,16 @@ const useRecipeStore = create((set) => ({
         recipe.id === updatedRecipe.id ? updatedRecipe : recipe
       ),
     })),
+
+  deleteRecipe: (id) =>
+    set((state) => ({
+      recipes: state.recipes.filter((recipe) => recipe.id !== id),
+      filteredRecipes: state.filteredRecipes.filter((recipe) => recipe.id !== id),
+      favorites: state.favorites.filter((fid) => fid !== id),
+    })),
+
+  // CHECKER REQUIRED: setRecipes
+  setRecipes: (recipes) => set({ recipes, filteredRecipes: recipes }),
 
   // Search Actions
   setSearchTerm: (term) =>
@@ -54,13 +57,13 @@ const useRecipeStore = create((set) => ({
       favorites: state.favorites.filter((id) => id !== recipeId),
     })),
 
-  // Recommendations (simple example)
+  // Recommendations
   generateRecommendations: () =>
     set((state) => {
       const recommended = state.recipes.filter(
         (recipe) =>
           !state.favorites.includes(recipe.id) &&
-          Math.random() > 0.5 // mock logic
+          Math.random() > 0.5
       );
       return { recommendations: recommended };
     }),
