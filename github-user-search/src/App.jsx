@@ -1,10 +1,11 @@
 import "./index.css";
+import Search from "./components/Search";
 
 function App() {
   return (
     <div className="app">
       <h1>GitHub User Search</h1>
-      <p>Search for GitHub users and view their profiles.</p>
+      <Search />
     </div>
   );
 }
