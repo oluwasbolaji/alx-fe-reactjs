@@ -13,7 +13,7 @@ const Search = () => {
     setError("");
 
     try {
-      const data = await fetchUserData(query);
+      const data = await fetchUserData(query, location, minRepos);
       setUsers([data]);
     } catch (err) {
       setError("Looks like we cant find the user");
