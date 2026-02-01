@@ -1,58 +1,61 @@
-import { useState } from "react";
-import { fetchUserData } from "../services/githubService";
+import React from "react";
 
-function Search() {
-  const [username, setUsername] = useState("");
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (!username) return;
-
-    setLoading(true);
-    setError("");
-    setUser(null);
-
-    try {
-      const data = await fetchUserData(username);
-      setUser(data);
-    } catch (err) {
-      setError("Looks like we cant find the user");
-    } finally {
-      setLoading(false);
-    }
-  };
-
+const Search = ({ users }) => {
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="w-full max-w-2xl mx-auto p-4">
+      {/* Search Form */}
+      <form className="flex flex-col gap-4 mb-6">
         <input
           type="text"
-          placeholder="Enter GitHub username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Search GitHub username"
+          className="border p-2 rounded"
         />
-        <button type="submit">Search</button>
+
+        <input
+          type="text"
+          placeholder="Location"
+          className="border p-2 rounded"
+        />
+
+        <input
+          type="number"
+          placeholder="Minimum repositories"
+          className="border p-2 rounded"
+        />
+
+        <button className="bg-blue-600 text-white py-2 rounded">
+          Search
+        </button>
       </form>
 
-      {loading && <p>Loading...</p>}
-
-      {error && <p>{error}</p>}
-
-      {user && (
-        <div>
-          <img src={user.avatar_url} alt={user.login} width="100" />
-          <h3>{user.name || user.login}</h3>
-          <a href={user.html_url} target="_blank" rel="noreferrer">
-            View GitHub Profile
-          </a>
-        </div>
-      )}
+      {/* Results Section (IMPORTANT PART) */}
+      <div className="grid gap-4">
+        {users.map((user) => (
+          <div
+            key={user.id}
+            className="border p-4 rounded flex items-center gap-4"
+          >
+            <img
+              src={user.avatar_url}
+              alt={user.login}
+              className="w-12 h-12 rounded-full"
+            />
+            <div>
+              <p className="font-semibold">{user.login}</p>
+              <a
+                href={user.html_url}
+                target="_blank"
+                rel="noreferrer"
+                className="text-blue-500 text-sm"
+              >
+                View Profile
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
-}
+};
 
 export default Search;
