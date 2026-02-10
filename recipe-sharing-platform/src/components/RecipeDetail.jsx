@@ -3,11 +3,10 @@ import { useParams, Link } from "react-router-dom";
 import recipesData from "../data.json";
 
 const RecipeDetail = () => {
-  const { id } = useParams(); // Get the recipe ID from URL
+  const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
 
   useEffect(() => {
-    // Find recipe by ID
     const selected = recipesData.find((r) => r.id === parseInt(id));
     setRecipe(selected);
   }, [id]);
@@ -42,16 +41,16 @@ const RecipeDetail = () => {
 
         <h2 className="text-xl font-semibold mb-2">Ingredients</h2>
         <ul className="list-disc list-inside mb-4">
-          <li>Ingredient 1</li>
-          <li>Ingredient 2</li>
-          <li>Ingredient 3</li>
+          {recipe.ingredients.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
         </ul>
 
         <h2 className="text-xl font-semibold mb-2">Cooking Steps</h2>
         <ol className="list-decimal list-inside">
-          <li>Step 1: Do this.</li>
-          <li>Step 2: Do that.</li>
-          <li>Step 3: Serve hot.</li>
+          {recipe.instructions.map((step, index) => (
+            <li key={index}>{step}</li>
+          ))}
         </ol>
       </div>
     </div>

@@ -3,24 +3,46 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": [
+      "200g spaghetti",
+      "100g pancetta",
+      "2 large eggs",
+      "50g grated Parmesan cheese",
+      "2 cloves garlic",
+      "Black pepper, to taste"
+    ],
+    "instructions": [
+      "Cook spaghetti according to package instructions.",
+      "Fry pancetta until crispy, add garlic briefly.",
+      "Beat eggs and mix with Parmesan cheese.",
+      "Combine hot spaghetti with pancetta and egg-cheese mixture quickly.",
+      "Season with black pepper and serve immediately."
+    ]
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://via.placeholder.com/150"
-  },
-  {
-    "id": 3,
-    "title": "Beef Stroganoff",
-    "summary": "Tender strips of beef in a creamy mushroom sauce, served over noodles.",
-    "image": "https://via.placeholder.com/150"
-  },
-  {
-    "id": 4,
-    "title": "Vegetable Stir Fry",
-    "summary": "Mixed vegetables stir-fried with soy sauce and garlic for a quick healthy meal.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": [
+      "500g chicken breast",
+      "200g yogurt",
+      "2 tbsp garam masala",
+      "1 tsp turmeric",
+      "1 onion, chopped",
+      "400g canned tomato",
+      "2 cloves garlic",
+      "1 tsp ginger",
+      "Salt to taste"
+    ],
+    "instructions": [
+      "Marinate chicken in yogurt and spices for at least 1 hour.",
+      "Grill or pan-fry chicken until cooked.",
+      "Sauté onions, garlic, and ginger until soft.",
+      "Add tomatoes and simmer for 10 minutes.",
+      "Add chicken to sauce and simmer 5 more minutes.",
+      "Serve hot with rice or naan."
+    ]
   }
 ]
