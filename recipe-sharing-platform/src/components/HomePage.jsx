@@ -4,15 +4,15 @@ import recipesData from "../data.json";
 import AddRecipeForm from "./AddRecipeForm";
 
 const HomePage = () => {
-  // State for recipes
+  // State for all recipes
   const [recipes, setRecipes] = useState([]);
 
-  // Load initial data from data.json
+  // Load initial recipes from data.json
   useEffect(() => {
     setRecipes(recipesData);
   }, []);
 
-  // Function to add a new recipe from the form
+  // Handle adding a new recipe from AddRecipeForm
   const handleAddRecipe = (newRecipe) => {
     setRecipes([newRecipe, ...recipes]);
   };
@@ -24,7 +24,7 @@ const HomePage = () => {
         Recipe Sharing Platform
       </h1>
 
-      {/* Add Recipe Form */}
+      {/* Add New Recipe Form */}
       <AddRecipeForm onAdd={handleAddRecipe} />
 
       {/* Recipes Grid */}
@@ -40,6 +40,14 @@ const HomePage = () => {
               <div className="p-4">
                 <h2 className="text-xl font-semibold mb-2">{recipe.title}</h2>
                 <p className="text-gray-600">{recipe.summary}</p>
+
+                {/* Optional: Display first few steps as preview */}
+                {recipe.steps && recipe.steps.length > 0 && (
+                  <div className="mt-2 text-gray-500 text-sm">
+                    <strong>Steps Preview:</strong>{" "}
+                    {recipe.steps.slice(0, 2).join(", ")}...
+                  </div>
+                )}
               </div>
             </div>
           </Link>
