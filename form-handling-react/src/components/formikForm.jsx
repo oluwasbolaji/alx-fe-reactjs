@@ -16,8 +16,7 @@ function FormikForm() {
   });
 
   const handleSubmit = (values, { resetForm }) => {
-    console.log("Submitted data:", values);
-    alert("Registration successful!");
+    console.log(values);
     resetForm();
   };
 
@@ -28,27 +27,29 @@ function FormikForm() {
       onSubmit={handleSubmit}
     >
       <Form>
+
         <h2>Formik Registration Form</h2>
 
         <div>
-          <label>Username</label><br />
+          <label>Username</label>
           <Field type="text" name="username" />
           <ErrorMessage name="username" component="p" />
         </div>
 
         <div>
-          <label>Email</label><br />
+          <label>Email</label>
           <Field type="email" name="email" />
           <ErrorMessage name="email" component="p" />
         </div>
 
         <div>
-          <label>Password</label><br />
+          <label>Password</label>
           <Field type="password" name="password" />
           <ErrorMessage name="password" component="p" />
         </div>
 
         <button type="submit">Register</button>
+
       </Form>
     </Formik>
   );
