@@ -1,7 +1,11 @@
+import RegistrationForm from "./components/RegistrationForm"
+
 function App() {
+
   return (
     <>
-      <h1>User Registration</h1>
+      <h1>User Registration App</h1>
+      <RegistrationForm />
     </>
   )
 }
