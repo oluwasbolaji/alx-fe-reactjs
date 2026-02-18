@@ -1,5 +1,7 @@
+import React from "react";
+
 function ProfileDetails() {
-  return <p>Profile Details Section</p>;
+  return <h2>This is Profile Details</h2>;
 }
 
 export default ProfileDetails;
