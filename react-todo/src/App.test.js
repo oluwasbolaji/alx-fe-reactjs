@@ -1,11 +1,10 @@
-import React from "react";        // ✅ ADD THIS
+import React from "react";
 import { render, screen } from "@testing-library/react";
+import '@testing-library/jest-dom';
 import App from "./App";
-import '@testing-library/jest-dom'; // ✅ ADD THIS TO USE jest-dom matchers
 
-
-test('renders learn react link', () => {
+test("renders TodoList component", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const heading = screen.getByText("Todo List");
+  expect(heading).toBeInTheDocument();
 });
